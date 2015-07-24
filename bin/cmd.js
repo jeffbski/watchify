@@ -34,9 +34,7 @@ bundle();
 
 function bundle () {
     var didError = false;
-    var outStream = process.platform === 'win32'
-        ? fs.createWriteStream(outfile)
-        : outpipe(outfile);
+    var outStream = outpipe(outfile);
 
     var wb = w.bundle();
     wb.on('error', function (err) {
